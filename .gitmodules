@@ -1,0 +1,3 @@
+[submodule "submodules/amrex"]
+	path = submodules/amrex
+	url = https://github.com/AMReX-Codes/amrex

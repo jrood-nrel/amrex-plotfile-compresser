@@ -1,0 +1,24 @@
+# ---------------------------------------------------------------------------
+# Example ParmParse inputs file for amrex-plotfile-compresser
+# Run: ./amrex-plotfile-compresser inputs/example.inp
+# Run parallel: mpirun -np 8 ./amrex-plotfile-compresser inputs/example.inp
+# ---------------------------------------------------------------------------
+
+# ---- Input plotfiles -------------------------------------------------------
+# Specify one or more native AMReX plotfile directories to convert.
+plotfiles = plt00000 plt01000 plt02000
+
+# ---- HDF5 compression descriptor ------------------------------------------
+# Supported descriptors:
+#   None@0                   - no compression (plain HDF5)
+#   ZLIB@<level>             - zlib/deflate, level 1-9 (e.g. ZLIB@6)
+#   ZFP_RATE@<rate>          - ZFP fixed-rate mode (bits per value, e.g. ZFP_RATE@4)
+#   ZFP_PRECISION@<prec>     - ZFP fixed-precision mode (e.g. ZFP_PRECISION@16)
+#   ZFP_ACCURACY@<accuracy>  - ZFP fixed-accuracy mode (e.g. ZFP_ACCURACY@0.001)
+#   ZFP_REVERSIBLE@reversible - ZFP lossless reversible mode
+hdf5_compression = ZFP_ACCURACY@0.001
+
+# ---- Output prefix (optional) ---------------------------------------------
+# If set, output files are named <output_prefix>_<input_leaf>.h5.
+# If not set (commented out), output files are named <input_plotfile>.h5.
+# output_prefix = compressed
